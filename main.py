@@ -157,7 +157,7 @@ def _copy_live_pin(chat_dir: Path, bucket: str, scope: str, mode: str) -> Path |
     '''Copy the synced scope file to the live pin filename.
 
     The client loads ``<bucket>__<scope>/chat_request_<mode>_v2.json`` when
-    ``base_id`` is unset. The pin name (``chat_request_analytics_base-6.1.json``
+    ``base_id`` is unset. The pin name (``chat_request_analytics_base-9.1.json``
     today) is the same bytes, for the operator. The loader does not open that
     name unless ``base_id`` is set.
     '''
