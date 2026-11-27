@@ -90,13 +90,13 @@ def test_pin_copy_matches_the_scope_file_and_skips_a_bad_base_id(tmp_path: Path)
     scope.mkdir()
     body = {
         "_format": "zeus.chat_request.v2",
-        "_lineage": {"base_id": "base-6.1"},
+        "_lineage": {"base_id": "base-9.1"},
         "verbs": [],
     }
     scope_file = scope / "chat_request_analytics_v2.json"
     scope_file.write_text(json.dumps(body), encoding="utf-8")
     dest = _copy_live_pin(tmp_path, "beer-sample", "_default", "analytics")
-    assert dest == tmp_path / "chat_request_analytics_base-6.1.json"
+    assert dest == tmp_path / "chat_request_analytics_base-9.1.json"
     assert dest is not None
     assert dest.read_bytes() == scope_file.read_bytes()
     again = _copy_live_pin(tmp_path, "beer-sample", "_default", "analytics")
