@@ -31,7 +31,7 @@ python main.py
 
 `python main.py` binds `127.0.0.1` and port `8090`. Set `PORT` to change the port and `HOST` to change the bind address. Restart the process after any `.env` change. The page is already in `static/`.
 
-On startup the app calls `catalog.sync()` and writes `data/chat_requests/beer-sample__default/chat_request_analytics_v2.json` from the live Zeus pin (`chat_request_analytics_base-9.1.json` today). That directory is gitignored. It survives a process restart. A missing catalog makes Pour return HTTP 502. It does not answer with empty `req_ids`.
+On startup the app calls `catalog.sync()` and writes `data/chat_requests/beer-sample__default/chat_request_analytics_v2.json` from the live Zeus pin. The operator copy is `data/chat_requests/chat_request_<mode>_<base_id>.json`, named from the synced `_lineage.base_id`. That directory is gitignored. It survives a process restart. A missing catalog makes Pour return HTTP 502. It does not answer with empty `req_ids`.
 
 5. Open [http://127.0.0.1:8090/](http://127.0.0.1:8090/).
 

@@ -112,17 +112,6 @@ def test_pin_copy_matches_the_scope_file_and_skips_a_bad_base_id(tmp_path: Path)
     assert _copy_live_pin(tmp_path, "missing", "_default", "analytics") is None
 
 
-def test_readme_and_main_name_the_base_9_1_pin() -> None:
-    readme = _text("README.md")
-    main = _text("main.py")
-    pin = "chat_request_analytics_base-9.1.json"
-    old_pin = "chat_request_analytics_base-6.1.json"
-    assert pin in readme
-    assert pin in main
-    assert old_pin not in readme
-    assert old_pin not in main
-
-
 _CDN_TRACE = (
     "https://koten-static-cdn.nyc3.cdn.digitaloceanspaces.com/"
     "zeus_client_chat_trace/latest/zeus_client_chat_trace.js"

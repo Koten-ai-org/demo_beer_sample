@@ -154,12 +154,13 @@ def _build_runtime() -> ZeusRuntime:
 
 
 def _copy_live_pin(chat_dir: Path, bucket: str, scope: str, mode: str) -> Path | None:
-    '''Copy the synced scope file to the live pin filename.
+    '''Copy the synced scope file to the operator pin filename.
 
     The client loads ``<bucket>__<scope>/chat_request_<mode>_v2.json`` when
-    ``base_id`` is unset. The pin name (``chat_request_analytics_base-9.1.json``
-    today) is the same bytes, for the operator. The loader does not open that
-    name unless ``base_id`` is set.
+    ``base_id`` is unset. The operator copy is
+    ``chat_request_<mode>_<base_id>.json`` in ``chat_dir``, named from the
+    synced ``_lineage.base_id``. Those are the same bytes. The loader does not
+    open that name unless ``base_id`` is set.
     '''
     if not bucket or not scope or not mode:
         return None
