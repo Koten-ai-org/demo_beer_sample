@@ -230,7 +230,7 @@ async def _lifespan(_app: FastAPI):
             await rt.aclose()
 
 
-app = FastAPI(title="Beer catalog UI", version="0.1.0", lifespan=_lifespan)
+app = FastAPI(title="Beer catalog UI", version="0.1.1", lifespan=_lifespan)
 _static = _ROOT / "static"
 if _static.is_dir():
     app.mount("/static", StaticFiles(directory=str(_static)), name="static")
